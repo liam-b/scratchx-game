@@ -23,16 +23,16 @@
     var database = firebase.database();
   };
 
-  ext.uploadData = function (id, x, y) {
-    firebase.database().ref('/world/' + id.toString()).set({
+  ext.uploadData = function (world, id, x, y) {
+    firebase.database().ref('/world/' + world.toString() + '/players/' + id.toString()).set({
       'x': x,
       'y': y
     });
   };
 
   var data = {}
-  ext.listenData = function () {
-    firebase.database().ref('/world/').on('value', function (snapshot) {
+  ext.listenData = function (world) {
+    firebase.database().ref('/' + world.toString() + '/').on('value', function (snapshot) {
       data = snapshot.val();
     });
   };
@@ -50,8 +50,8 @@
     blocks: [
       // Block type, block name, function name
       [' ', 'initialise firebase', 'loadFirebase'],
-      [' ', 'upload id%n, x:%n, y:%n', 'uploadData'],
-      [' ', 'listen', 'listenData'],
+      [' ', 'upload world%n id%n, x:%n, y:%n', 'uploadData'],
+      [' ', 'listen world%n', 'listenData'],
       ['r', 'x of id%n', 'downloadX'],
       ['r', 'y of id%n', 'downloadY'],
     ]

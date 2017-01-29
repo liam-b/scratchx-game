@@ -1,15 +1,22 @@
 {
-  "world" : {
-    "0" : {
-      "x" : 0,
-      "y" : 0
-    },
-    "1" : {
-      "x" : 0,
-      "y" : 0
+  "world": {
+    "0": {
+      "players": {
+        "0" : {
+          "x" : 0,
+          "y" : 0
+        },
+        "1" : {
+          "x" : 0,
+          "y" : 0
+        }
+      },
+      "settings": {
+        "info": "info"
+      }
     }
   },
-  "settings" : {
-    "maxPlayers" : 2
+  "settings": {
+    "maxPlayers": 2
   }
 }
